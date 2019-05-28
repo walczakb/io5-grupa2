@@ -7,8 +7,7 @@ import io.sqldb.SqlDbFactory;
 
 public class Program {
     public static void main(String[] args) {
-        DbEngine engine = new SqlDbFactory().engine();
-        Database db = new Database(engine);
-        SwingFacade.start(db.loadStore(), db);
+        Database db = new Database();
+        SwingFacade.start(db.loadStore());
     }
 }
