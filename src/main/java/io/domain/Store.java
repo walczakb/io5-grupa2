@@ -25,8 +25,7 @@ public class Store {
 
     public Item addItem(String name, int count, int price) {
         Item item = createItem(name, count, price);
-        items.add(item);
-        for (Observer observer : observers) observer.notifyAdd(item);
+        addItem(item);
         return item;
     }
 
