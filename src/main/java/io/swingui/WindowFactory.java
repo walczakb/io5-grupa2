@@ -9,8 +9,7 @@ import io.ui.ViewFactory;
 
 public class WindowFactory implements ViewFactory {
 
-    public WindowFactory() {
-    }
+    public WindowFactory() {}
 
     public void openEditItemView(Item item) {
         ItemWindow view = new ItemWindow();

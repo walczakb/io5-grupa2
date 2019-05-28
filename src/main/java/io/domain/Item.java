@@ -10,8 +10,13 @@ public class Item {
 
     private List<Observer> observers = new ArrayList<>();
 
-    public void addObserver(Observer observer) { observers.add(observer); }
-    public void removeObserver(Observer observer) { observers.remove(observer); }
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
 
     private String name;
     private int count;
@@ -23,11 +28,17 @@ public class Item {
         this.price = price;
     }
 
+    public String name() {
+        return name;
+    }
 
+    public int count() {
+        return count;
+    }
 
-    public String name() { return name; }
-    public int count() { return count; }
-    public int price() { return price; }
+    public int price() {
+        return price;
+    }
 
     public void update(String name, int count, int price) {
         this.name = name;

@@ -11,12 +11,19 @@ public class Store {
 
     private List<Observer> observers = new ArrayList<>();
 
-    public void addObserver(Observer observer) { observers.add(observer); }
-    public void removeObserver(Observer observer) { observers.remove(observer); }
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
 
     private List<Item> items = new ArrayList<>();
 
-    public List<Item> items() { return Collections.unmodifiableList(items); }
+    public List<Item> items() {
+        return Collections.unmodifiableList(items);
+    }
 
 
     public Item addItem(String name, int count, int price) {
@@ -30,7 +37,7 @@ public class Store {
         for (Observer observer : observers) observer.notifyAdd(item);
     }
 
-    public  Item createItem(String name, int count, int price) {
+    public Item createItem(String name, int count, int price) {
         return new Item(name, count, price);
     }
 
