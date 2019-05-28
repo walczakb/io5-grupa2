@@ -15,11 +15,18 @@ public class Store {
     public void removeObserver(Observer observer) { observers.remove(observer); }
 
     private List<Item> items = new ArrayList<>();
+    public void loadItem(Item item){items.add(item);}
 
     public List<Item> items() { return Collections.unmodifiableList(items); }
 
-    public void addItem(Item item) {
+    public Item addItem(String name, int count, int price) {
+        Item item = createItem(name,count,price);
         items.add(item);
         for (Observer observer : observers) observer.notifyAdd(item);
+        return item;
+    }
+
+    protected Item createItem(String name, int count, int price){
+        return new Item(name, count, price);
     }
 }
