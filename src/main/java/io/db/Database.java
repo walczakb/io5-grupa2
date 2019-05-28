@@ -1,5 +1,6 @@
 package io.db;
 
+import io.domain.Item;
 import io.domain.Store;
 
 public class Database implements DbGateway {
@@ -10,7 +11,7 @@ public class Database implements DbGateway {
     public Store loadStore() {
         Store store = new StoreProxy(engine);
         engine.readItems((id, name, count, price) -> {
-            store.addItem(name, count, price);
+            store.loadItem(new ItemProxy(name, count, price, engine, id));
         });
         return store;
     }

@@ -43,12 +43,11 @@ public class DatabaseTest {
 
     @Test
     public void testInsertAndUpdateItem() {
-        Item item = new Item("item1", 100, 1);
         DbEngine engine = mock(DbEngine.class);
         when(engine.insertItem("item1", 100, 1)).thenReturn(101);
         Database db = new Database(engine);
         Store store = db.loadStore();
-        store.addItem("item1", 100, 1);
+        Item item = store.addItem("item1", 100, 1);
         item.update("item2", 200, 2);
         verify(engine).updateItem(101, "item2", 200, 2);
     }
