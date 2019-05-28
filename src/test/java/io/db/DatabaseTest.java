@@ -35,8 +35,7 @@ public class DatabaseTest {
         }).when(engine).readItems(any(DbEngine.ItemListBuilder.class));
         Item item = Database.loadStore(engine).items().get(0);
         item.update("item2", 200, 2);
-        //db.updateItem(item);
-        //verify(engine).updateItem(101, "item2", 200, 2);
+        verify(engine).updateItem(101, "item2", 200, 2);
     }
 
     @Test
@@ -45,9 +44,7 @@ public class DatabaseTest {
         DbEngine engine = mock(DbEngine.class);
         when(engine.insertItem("item1", 100, 1)).thenReturn(101);
         Database.loadStore(engine);
-        //db.addItem(item);
         item.update("item2", 200, 2);
-        //db.updateItem(item);
-       // verify(engine).updateItem(101, "item2", 200, 2);
+        verify(engine).updateItem(101, "item2", 200, 2);
     }
 }

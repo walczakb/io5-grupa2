@@ -10,7 +10,6 @@ public class Database {
         engine.readItems((id, name, count, price) -> {
             Item item = new ItemProxy(engine,id,name,count,price);
             store.loadItem(item);
-            //store.addItem(name, count, price);
         });
         return store;
     }
